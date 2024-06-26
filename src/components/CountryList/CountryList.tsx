@@ -5,11 +5,13 @@ import CountryCard from "../CountryCard";
 
 const CountryList = () => {
   const [countries, setCountries] = useState<TCountry[]>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
   useEffect(() => {
     const fetchCountries = async () => {
       const response = await api.country.getCountries();
       setCountries(response || []);
+      setIsLoading(false);
     };
 
     fetchCountries();
@@ -24,6 +26,14 @@ const CountryList = () => {
 
     setCountries(newCountries);
   };
+
+  if (isLoading) {
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <div className="text-3xl font-bold">Loading...✈️</div>
+      </div>
+    );
+  }
 
   return (
     <div className="flex flex-col mx-auto p-6">
