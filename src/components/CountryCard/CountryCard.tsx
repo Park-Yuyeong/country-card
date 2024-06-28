@@ -1,4 +1,4 @@
-import { CountryCardProps } from "./CountryCard.interface";
+import CountryCardProps from "./CountryCardProps.interface";
 
 const CountryCard = ({ country }: CountryCardProps) => {
   return (

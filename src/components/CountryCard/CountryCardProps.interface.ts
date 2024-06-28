@@ -1,5 +1,7 @@
 import { TCountry } from "../../types/country.type";
 
-export interface CountryCardProps {
+interface CountryCardProps {
   country: TCountry;
 }
+
+export default CountryCardProps;
